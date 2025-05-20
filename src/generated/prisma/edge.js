@@ -151,6 +151,10 @@ const config = {
       {
         "fromEnvVar": null,
         "value": "linux-musl-arm64-openssl-3.0.x"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "linux-musl-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -177,8 +181,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../src/generated/prisma\"\n  binaryTargets = [\"native\", \"linux-musl-arm64-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  uid         String      @id\n  timeEntries TimeEntry[]\n}\n\nmodel TimeEntry {\n  id        String   @id @default(uuid())\n  userId    String\n  weekStart DateTime\n  mon       Float\n  tue       Float\n  wed       Float\n  thu       Float\n  fri       Float\n  sat       Float\n  sun       Float\n  approved  Boolean  @default(false)\n\n  user User @relation(fields: [userId], references: [uid])\n}\n",
-  "inlineSchemaHash": "ba3962078435f7223ff165d81e8d9ef814118815d840aafdf3750a74616b4cd0",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"linux-musl-arm64-openssl-3.0.x\", \"linux-musl-openssl-3.0.x\"]\n  output        = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  uid         String      @id\n  timeEntries TimeEntry[]\n}\n\nmodel TimeEntry {\n  id        String   @id @default(uuid())\n  userId    String\n  weekStart DateTime\n  mon       Float\n  tue       Float\n  wed       Float\n  thu       Float\n  fri       Float\n  sat       Float\n  sun       Float\n  approved  Boolean  @default(false)\n\n  user User @relation(fields: [userId], references: [uid])\n}\n",
+  "inlineSchemaHash": "9a1ce8d520f114aecbfc526562f0ab1de4c61ec49546cec556c12abb61c11eb8",
   "copyEngine": true
 }
 config.dirname = '/'
