@@ -151,10 +151,6 @@ const config = {
       },
       {
         "fromEnvVar": null,
-        "value": "linux-musl-arm64-openssl-3.0.x"
-      },
-      {
-        "fromEnvVar": null,
         "value": "linux-musl-openssl-3.0.x"
       }
     ],
@@ -182,8 +178,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"linux-musl-arm64-openssl-3.0.x\", \"linux-musl-openssl-3.0.x\"]\n  output        = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  uid         String      @id\n  timeEntries TimeEntry[]\n}\n\nmodel TimeEntry {\n  id        String   @id @default(uuid())\n  userId    String\n  weekStart DateTime\n  mon       Float\n  tue       Float\n  wed       Float\n  thu       Float\n  fri       Float\n  sat       Float\n  sun       Float\n  approved  Boolean  @default(false)\n\n  user User @relation(fields: [userId], references: [uid])\n}\n",
-  "inlineSchemaHash": "9a1ce8d520f114aecbfc526562f0ab1de4c61ec49546cec556c12abb61c11eb8",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"linux-musl-openssl-3.0.x\"]\n  output        = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  uid         String      @id\n  timeEntries TimeEntry[]\n}\n\nmodel TimeEntry {\n  id        String   @id @default(uuid())\n  userId    String\n  weekStart DateTime\n  mon       Float\n  tue       Float\n  wed       Float\n  thu       Float\n  fri       Float\n  sat       Float\n  sun       Float\n  approved  Boolean  @default(false)\n\n  user User @relation(fields: [userId], references: [uid])\n}\n",
+  "inlineSchemaHash": "9a5e5bb511e3848b100e2958695b2b8cc69fcd0be4b108805dc32902f8dabf92",
   "copyEngine": true
 }
 
@@ -224,10 +220,6 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-darwin-arm64.dylib.node");
 path.join(process.cwd(), "src/generated/prisma/libquery_engine-darwin-arm64.dylib.node")
-
-// file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-linux-musl-arm64-openssl-3.0.x.so.node");
-path.join(process.cwd(), "src/generated/prisma/libquery_engine-linux-musl-arm64-openssl-3.0.x.so.node")
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-linux-musl-openssl-3.0.x.so.node");
