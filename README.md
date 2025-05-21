@@ -2,7 +2,7 @@
 
 A simple time-tracking web app built with **Next.js 15**, **Prisma**, and **PostgreSQL**, deployed on **Google Cloud Run**.
 
-> Live demo → <https://time-tracker-216662824439.us-west1.run.app>
+> Live demo → <https://time-tracker-216662824439.us-west1.run.app/timesheet>
 
 ---
 
